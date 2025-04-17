@@ -42,7 +42,7 @@
           <q-img src="../../assets/user.svg" class="user_icon"></q-img>
         </div>
 
-        <span class="tab-name">Profile</span>
+        <span class="tab-name">Settings</span>
       </div>
     </div>
   </div>

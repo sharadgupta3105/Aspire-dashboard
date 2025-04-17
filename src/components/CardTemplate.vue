@@ -2,13 +2,10 @@
   <div class="card-container">
     <div class="show-number-holder">
       <div class="show-number">
-        <q-icon name="visibility" size="20px" class="dot" /> Show Card Number
+        <q-icon name="visibility" size="20px" class="dot" /> Show card number
       </div>
     </div>
-    <div
-      class="card_holder"
-      :style="card.freeze ? '  background: #757575;' : '  background: #01d167;'"
-    >
+    <div class="card_holder" :class="{ 'frozen-card': card.freeze }">
       <div class="img-holder">
         <q-img src="../assets/Logo-2.svg" class="img"></q-img>
       </div>
@@ -54,82 +51,85 @@ export default {
   height: 250px;
 }
 .card_holder {
+  max-width: 414px;
   width: 100%;
-  height: 200px;
-  border-radius: 10px;
+  max-height: 249px;
+  padding: 27px;
+  border-radius: 14px;
   display: inline-block;
+  background: rgba(1, 209, 103, 1);
+}
+.frozen-card {
+  background: #757575;
 }
 .show-number-holder {
   display: flex;
   justify-content: end;
-  margin-bottom: -11px;
-  height: 40px;
+  height: 30px;
 }
 .show-number {
   background: white;
   color: #01d167;
-  padding: 4px 10px;
   border-radius: 5px;
   font-weight: bold;
+  margin-bottom: -12px;
+  padding: 5px 8px;
 }
 .q-carousel__slide {
   padding: 0;
 }
 .img-holder {
   width: 100%;
-  height: 50px;
+  height: 40px;
   text-align: end;
-  padding: 20px 20px 15px;
 }
 .visa-img-holder {
   width: 100%;
-  height: 30px;
   text-align: end;
-  padding: 0 20px;
 }
 .img {
-  width: 76px;
-  height: 21px;
+  width: 84px;
+  height: 24px;
 }
 .visa-img {
-  width: 76px;
-  height: 26px;
+  width: 66px;
+  height: 22px;
 }
 .name-holder {
-  padding: 0 20px;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: bold;
-  font-family: sans-serif;
 }
 .card-number {
-  padding: 0 20px;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
   display: flex;
-  margin-top: 10px;
-  font-family: sans-serif;
+  margin-top: 30px;
 }
 .digits {
-  width: 60px;
+  width: 65px;
   float: left;
   font-weight: bold;
   display: flex;
   flex-direction: row;
   height: 20px;
   align-items: center;
+  letter-spacing: 4px;
 }
 .dot {
-  margin-right: 2px;
+  margin-right: 4px;
 }
 .date-cvv-holder {
+  margin-top: 21px;
   display: flex;
   letter-spacing: 1px;
+  font-size: 13px;
   width: 215px;
   font-weight: bold;
   justify-content: space-between;
-  padding: 10px 20px 0;
-  font-family: sans-serif;
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
+  .card-number {
+    margin-top: 24px;
+  }
 }
 </style>

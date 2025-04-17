@@ -7,7 +7,7 @@
         <q-img src="../assets/Logo.svg" class="logo"></q-img>
       </div>
       <div class="ac_container">
-        <div class="ac_text">Account Balance</div>
+        <div class="ac_text">Available balance</div>
         <div class="ac_amount">
           <span class="amount_box"
             ><span class="dollar_box">$$</span> <b>3,000</b></span
@@ -17,7 +17,8 @@
             @click="openAddForm = true"
             class="add_btn"
             icon="add_circle"
-            label="New Card"
+            label="New card"
+            padding="10px 12px"
             no-caps
           ></q-btn>
         </div>
@@ -59,8 +60,8 @@
           :breakpoint="0"
           no-caps
         >
-          <q-tab class="tab-option" name="myCards" label="My Debit Cards" />
-          <q-tab name="companyCards" label="All Company Cards" />
+          <q-tab class="tab-option" name="myCards" label="My debit cards" />
+          <q-tab name="companyCards" label="All company cards" />
         </q-tabs>
 
         <q-tab-panels v-model="tab" animated class="tab_panel">
@@ -73,7 +74,7 @@
                   animated
                   :navigation-position="navPos"
                   navigation
-                  height="300px"
+                  height="330px"
                   class="bg-transparent text-white"
                 >
                   <template v-slot:navigation-icon="{ active, onClick }">
@@ -103,11 +104,7 @@
                   </q-carousel-slide>
                 </q-carousel>
 
-                <card-options
-                  v-if="$q.screen.gt.sm"
-                  class=""
-                  :slide="active_slide"
-                />
+                <card-options v-if="$q.screen.gt.sm" :slide="active_slide" />
               </div>
               <div class="transaction-details">
                 <div class="card-details-holder">
@@ -117,12 +114,13 @@
                         <q-avatar>
                           <img
                             src="../assets/Group11889.svg"
-                            style="height: 25px; width: 25px"
+                            style="height: 24px; width: 24px"
                           />
                         </q-avatar>
                       </q-item-section>
-
-                      <q-item-section><b> Card Details</b> </q-item-section>
+                      <q-item-section
+                        ><span class="drop-heading"> Card details</span>
+                      </q-item-section>
                     </template>
                     <q-card>
                       <q-card-section>
@@ -143,20 +141,14 @@
                         <q-avatar>
                           <img
                             src="../assets/Group11889-1.svg"
-                            style="height: 25px; width: 25px"
+                            style="height: 24px; width: 24px"
                           />
                         </q-avatar>
                       </q-item-section>
 
-                      <q-item-section
-                        ><b> Recent Transactions</b>
-                      </q-item-section>
+                      <q-item-section> Recent transactions </q-item-section>
                     </template>
                     <q-card class="cards-holder">
-                      <transaction-template />
-                      <transaction-template />
-                      <transaction-template />
-                      <transaction-template />
                       <transaction-template />
                     </q-card>
                     <div class="all-transaction">
@@ -189,7 +181,7 @@
               </q-avatar>
             </q-item-section>
 
-            <q-item-section><b> Card Details</b> </q-item-section>
+            <q-item-section><b> Card details</b> </q-item-section>
           </template>
           <q-card>
             <q-card-section>
@@ -214,10 +206,6 @@
             <q-item-section><b> Recent Transactions</b> </q-item-section>
           </template>
           <q-card class="cards-holder">
-            <transaction-template />
-            <transaction-template />
-            <transaction-template />
-            <transaction-template />
             <transaction-template />
           </q-card>
           <div class="all-transaction">view all card transactions</div>
@@ -295,8 +283,9 @@ export default defineComponent({
 }
 .add_btn {
   color: #23cefd;
-  font-weight: bold;
-  padding: 0;
+  font-weight: 600;
+  font-size: 13px !important;
+  border-radius: 6px;
 }
 .card-details-holder {
   width: 100%;
@@ -304,10 +293,10 @@ export default defineComponent({
   padding: 20px;
 }
 .card-details {
-  border: 1px solid #f5f5f5;
-  background: #edf3ff;
-  border-radius: 5px;
-  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(240, 240, 240, 1);
+  background: rgba(245, 249, 255, 1);
+  border-radius: 8px 8px 8px 8px !important;
+  box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.04);
   margin-bottom: 20px;
 }
 .q-carousel--navigation-bottom.q-carousel--with-padding .q-carousel__slide {
@@ -345,10 +334,11 @@ export default defineComponent({
   background: #0c365a;
   position: fixed;
   overflow-y: scroll;
+  font-family: 'Open Sans';
 }
 .card-option-holder {
   position: relative;
-  margin-top: 480px;
+  margin-top: 510px;
 }
 .logo_holder {
   width: 100%;
@@ -381,18 +371,21 @@ export default defineComponent({
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-size: 26px;
   width: 120px;
   justify-content: space-between;
 }
 .dollar_box {
-  width: 50px;
-  height: 22px;
+  width: 40px;
+  height: 24px;
   border-radius: 5px;
   background: #01d167;
   display: flex;
   justify-content: center;
+  font-weight: 800;
   align-items: center;
-  font-size: 15px;
+  font-size: 13px;
+  color: white;
 }
 .tab_container {
   padding: 20px 0;
@@ -412,25 +405,31 @@ export default defineComponent({
   min-height: 10px;
   padding: 0;
   width: 10px;
-  opacity: 10%;
+  opacity: 20%;
   border-radius: 16px;
 }
 .carousel-div {
   width: 100%;
 }
+.drop-heading {
+  font-size: 14px;
+}
 @media only screen and (min-width: 600px) {
+  .logo_holder {
+    display: none;
+  }
   .page_container {
     background: white;
   }
   .carousel-div {
-    width: 350px;
+    width: 414px;
   }
   .fixed-div {
-    width: calc(100% - 300px);
+    width: calc(100% - 340px);
     right: 0;
     height: 100%;
     overflow: scroll;
-    padding: 30px;
+    padding: 60px;
   }
   .ac_text {
     color: black;
@@ -451,8 +450,8 @@ export default defineComponent({
     right: 0;
   }
   .carousel {
-    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.08);
-    padding: 30px;
+    box-shadow: 0 0 12px 3px rgba(0, 0, 0, 0.08);
+    padding: 30px 40px;
     display: flex;
     flex-direction: row;
   }
@@ -460,7 +459,7 @@ export default defineComponent({
     width: calc(100% - 350px);
   }
   .card-details-holder {
-    padding: 30px 0 20px 30px;
+    padding: 30px 0 20px 46px;
   }
 }
 </style>

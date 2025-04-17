@@ -11,7 +11,7 @@
         </div>
 
         <span class="card-tab-name">{{
-          cards_data[slide]?.freeze ? 'Unfreeze Card' : 'Freeze Card'
+          cards_data[slide].freeze ? 'Unfreeze card' : 'Freeze card'
         }}</span>
       </div>
     </q-item>
@@ -21,7 +21,7 @@
           <q-img src="../assets/Setspendlimit.svg" class="card_icon"></q-img>
         </div>
 
-        <span class="card-tab-name">Set Spend Limit</span>
+        <span class="card-tab-name">Set spend limit</span>
       </div>
     </div>
     <div class="hr-option">
@@ -39,7 +39,7 @@
           <q-img src="../assets/Replacecard.svg" class="card_icon"></q-img>
         </div>
 
-        <span class="card-tab-name">Replace Card</span>
+        <span class="card-tab-name">Replace card</span>
       </div>
     </div>
     <q-item clickable @click="promptToDelete" class="hr-option">
@@ -48,7 +48,7 @@
           <q-img src="../assets/Deactivatecard.svg" class="card_icon"></q-img>
         </div>
 
-        <span class="card-tab-name">Cancle Card</span>
+        <span class="card-tab-name">Cancel card</span>
       </div>
     </q-item>
     <q-dialog v-model="confirm" persistent>
@@ -97,42 +97,43 @@ export default {
 <style>
 .card-options {
   width: 100%;
-  height: 100px;
+  height: 116px;
   background: #edf3ff;
   bottom: 0;
+  padding: 20px 10px;
   display: flex;
   flex-direction: row;
-  border-radius: 15px 15px 0 0;
+  justify-content: space-between;
+  border-radius: 16px 16px 0 0;
 }
 .card-img-div {
   width: 100%;
-  height: 30px;
+  height: 32px;
 }
 .hr-option {
   width: 20%;
+  max-width: 70px;
   height: 100%;
   position: relative;
 }
 .card_icon {
-  height: 30px;
-  width: 30px;
+  height: 32px;
+  width: 32px;
 }
 .card-tab-content {
   width: 100%;
   max-width: 200px;
-  height: 80px;
   text-align: center;
-  padding: 7px;
 }
 .card-tab-name {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
   display: block;
-  padding-top: 5px;
+  padding-top: 8px;
 }
 @media only screen and (min-width: 600px) {
   .card-options {
-    border-radius: 15px;
+    border-radius: 16px;
   }
 }
 </style>
